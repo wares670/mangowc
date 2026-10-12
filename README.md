@@ -12,6 +12,7 @@ jetbrains mono font
 waybar
 rofi 
 mangowc and its dependencies
+terminal: foot
 
 Tree: 
 ~/.config/mango
