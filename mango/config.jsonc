@@ -1,18 +1,19 @@
 {
   "layer": "top",
   "position": "top",
-  "spacing": 15,
+  "spacing": 10,
   "height": 35,
-  "margin-top": 3,
-  "margin-left": 225,
-  "margin-right": 225,
+  "margin-top": 5,
+  "margin-left": 175,
+  "margin-right": 175,
 
   "modules-left": [
-"custom/tab",
- "ext/workspaces",
- "custom/cliphist",
- "custom/mangolayout"
-],
+    "custom/tab",
+    "ext/workspaces",
+    "custom/cliphist",
+    "custom/mangolayout",
+    "dwl/window",
+  ],
   "modules-center": ["clock"],
 
   "modules-right": [
@@ -21,7 +22,7 @@
     "wireplumber",
     "battery",
     "custom/lock",
-    "custom/power"
+    "custom/power",
   ],
 
   "network": {
@@ -29,22 +30,30 @@
     "format-ethernet": "     Connected",
     "format-disconnected": "󰼡 ",
     "tooltip-format": "Interface: {ifname}\nIP: {ipaddr}\nSignal: {signalStrength}%",
-    "on-click": "kitty -e nmtui"
+    "on-click": "foot -e nmtui",
   },
 
   "custom/tab": {
     "format": "Apps",
-    "on-click": "rofi -show drun"
+    "on-click": "rofi -show drun",
   },
 
   "ext/workspaces": {
-    "format": "{name}",
-    "on-click": "activate",
-    "sort-by-number": true
+      "disable-scroll": true,
+      "all-outputs": true,
+      "format": "{name}: {icon}",
+      "format-icons": {
+        "1": "",
+        "2": "   ",
+        "3": "   ",
+        "4": "   ",
+        "urgent": "",
+        "default": ""
+     }
   },
   "tray": {
     "icon-size": 16,
-    "spacing": 6
+    "spacing": 6,
   },
 
   "wireplumber": {
@@ -53,34 +62,34 @@
     "format-muted": " muted",
     "on-click": "pavucontrol",
     "format-icons": {
-      "default": [""]
-    }
+      "default": [""],
+    },
   },
 
   "battery": {
     "format": " {capacity}%",
     "format-charging": " {capacity}% ",
     "format-icons": [" ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  ", "  "],
-    "tooltip-format": "Battery: {capacity}%"
+    "tooltip-format": "Battery: {capacity}%",
   },
 
   "clock": {
     "format": "{:%I:%M %p}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   },
   "custom/cliphist": {
     "format": "󰅇 ",
     "on-click": "cliphist list | rofi -dmenu -p 'Clipboard' | cliphist decode | wl-copy",
     "on-click-right": "cliphist wipe", // Right-click clears your clipboard history
     "tooltip": true,
-    "tooltip-format": "Left-click: Open History\nRight-click: Clear History"
+    "tooltip-format": "Left-click: Open History\nRight-click: Clear History",
   },
 
   "custom/lock": {
     "format": " ",
     "on-click": "hyprlock",
     "tooltip": true,
-    "tooltip-format": "Lock Screen"
+    "tooltip-format": "Lock Screen",
   },
   "custom/weather": {
     "format": "  {}",
@@ -88,11 +97,16 @@
     "interval": 1800,
     "exec": "curl -s 'wttr.in/?format=%t' | tr -d '+ \n\r'",
     "return-type": "",
-    "on-click": "xdg-open https://wttr.in/"
+    "on-click": "xdg-open https://wttr.in/",
   },
   "custom/mangolayout": {
-   "exec": "/home/Block-master/.config/mango/scripts/mango-layout.sh",
+    "exec": "/home/Block-master/.config/mango/scripts/mango-layout.sh",
     "format": "   {}",
-    "on-click": "mmsg dispatch setlayout next"
-  }
+    "on-click": "mmsg dispatch setlayout next",
+  },
+  "dwl/window": {
+    "format": "{}",
+    "max-length": 50,
+    "separate-outputs": true,
+  },
 }

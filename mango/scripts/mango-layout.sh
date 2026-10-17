@@ -9,7 +9,7 @@ mmsg watch all-monitors | jq --unbuffered -r '.monitors[] | select(.active) | .l
         "S"|"scroller")       TEXT="Scroller" ;;
         "T"|"tile"|"")        TEXT="Tiling" ;;
         "M"|"monocle")        TEXT="Monocle" ;;
-        "D"|"dwindle")        TEXT="Dwindle" ;;
+        "DW"|"dwindle")        TEXT="Dwindle" ;;
         "G"|"grid"|"###")     TEXT="Grid" ;;
         "deck")               TEXT="Deck" ;;
         *)                    TEXT="$SYM" ;; # Fallback just in case
